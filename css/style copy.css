@@ -1,0 +1,67 @@
+#closed-session{
+  position: relative;
+  top:20%;
+  text-align: center;
+  font-size:72px;
+  font-weight: bold;
+}
+#session-closed{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-image: url(/img/fon.png);
+  background-size: 100%;
+  color:#fff;
+}
+#session-closed.div{
+  font-size: 72; 
+  font-weight: bold;
+}
+
+.form-group.required .control-label:after,
+.form-group.required label:after {
+  content: "*";
+  color: red;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #fff;
+  border-width: 3px;
+  border-style: ridge;
+  border-color: green;
+}
+
+.btn .btn-secondary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.nav-pills .nav-link.active {
+  background-color: rgb(27, 192, 27);
+}
+
+.nav-pills .nav-link[name="question link selected"],
+.nav-pills .show > .nav-link[name="question link selected"] {
+  background-color: #007bff;
+  color: white;
+  border-width: 3px;
+  border-color: green;
+  border-style: ridge;
+}
+
+.nav-item.nav-link {
+  height: 46px;
+  width: 46px;
+  text-align: center;
+  vertical-align: center;
+}
+.nav-link {
+  display: block;
+  padding: 0.5rem 0.7rem;
+}

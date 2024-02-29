@@ -1,0 +1,74 @@
+.form-group.required .control-label:after,
+.form-group.required label:after {
+  content: "*";
+  color: red;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.btn.btn-secondary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.nav-item.nav-link.active {
+  color: #fff;
+  border-width: 3px;
+  border-style: ridge;
+  border-color: green;
+  background-color: rgb(27, 192, 27);
+}
+
+.nav-item.nav-link[name="question link selected"] {
+  background-color: #007bff;
+  color: white;
+  border-width: 3px;
+  border-color: green;
+  border-style: ridge;
+}
+
+.nav-item.nav-link {
+  height: 46px;
+  width: 46px;
+  text-align: center;
+  vertical-align: center;
+}
+.nav-link {
+  display: block;
+  padding: 0.5rem 0.7rem;
+}
+.row.login{
+  position: relative;
+  width: 60%;
+  left: 20%;
+}
+
+.container-lst {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.sidebar-container {
+    position: fixed;
+    left:0%;
+    width: 15%;
+    height: 100%;
+    background: #f1f1f1;
+    padding: 10px;
+    z-index:1;
+}
+
+.content-container {
+  left:15%;
+  position: relative;
+  width: 85%;
+    /*flex-grow: 1;*/
+    padding: 10px;
+    z-index:0;
+
+}
+
