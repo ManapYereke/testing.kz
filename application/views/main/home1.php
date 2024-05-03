@@ -1,1 +1,0 @@
-<div style="font-size: 72; font-weight: bold;">Система закрыта до следующего тестирования.

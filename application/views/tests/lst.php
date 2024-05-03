@@ -11,7 +11,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		<div class="content-container">
 			<div class="page-header animated slideInDown">
 				<h1 class="text-muted discount-card-text">
-					<i class="fas fa-list"></i> Должности
+					<i class="fas fa-list"></i> Вопросы
 				</h1>
 			</div>
 
@@ -19,19 +19,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>Название на русском</th>
-						<th>Қазақша атауы</th>
-						<th>Название специальности на русском</th>
+						<th>Тест</th>
+						<th>Индекс сортировки</th>
+						<th>Текст на русском</th>
+						<th>Текст на казахском</th>
+						<th>Дата/время</th>
+						<th>Автор</th>
 					</tr>
 				</thead>
-				<tfoot>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-				</tfoot>
 			</table>
 		</div>
 	</div>
@@ -49,26 +44,35 @@ defined('BASEPATH') or exit('No direct script access allowed');
 						[1, 'desc']
 					],
 					initComplete: function() {
-						$('.dataTables_length').prepend('<a class="btn btn-primary btn-sm" href="<?= site_url($this->uri->segment(1) . "/add") ?>"><i class="far fa-plus-square"></i> Добавить новую должность</a>&nbsp;&nbsp;&nbsp;');
+						$('.dataTables_length').prepend('<a class="btn btn-primary btn-sm" href="<?= site_url($this->uri->segment(1) . "/add") ?>"><i class="far fa-plus-square"></i> Добавить новый вопрос</a>&nbsp;&nbsp;&nbsp;');
 					},
 					"columns": [{
-						"data": "tb0203_id",
+						"data": "tb0302_id",
 						"className": "text-center"
 					}, {
-						"data": "tb0203_name_ru",
+						"data": "tb0302_tb0301_id",
 						"className": "text-center"
 					}, {
-						"data": "tb0203_name_kz",
+						"data": "tb0302_order",
 						"className": "text-center"
 					}, {
-						"data": "tb0203_speciality_id",
+						"data": "tb0302_desc_ru",
+						"className": "text-center"
+					}, {
+						"data": "tb0302_desc_kz",
+						"className": "text-center"
+					}, {
+						"data": "tb0302_created",
+						"className": "text-center"
+					}, {
+						"data": "tb0302_createdby",
 						"className": "text-center"
 					}],
 					"columnDefs": [{
-						"targets": [0, 1, 2, 3],
+						"targets": [0, 1, 2, 3, 4, 5, 6],
 						"render": function(data, type, row) {
 							if (!data) return "";
-							return '<a href="<?= site_url($this->uri->segment(1) . "/edit") ?>/' + row.tb0203_id + '">' + data + '</a>';
+							return '<a href="<?= site_url($this->uri->segment(1) . "/edit") ?>/' + row.tb0302_id + '">' + data + '</a>';
 						}
 					}]
 				}).on('draw.dt', function() {

@@ -1,7 +1,7 @@
 <?php
 defined("BASEPATH") OR exit("No direct script access allowed");
 
-class Edutype extends CI_Controller {
+class Subtest extends CI_Controller {
 	var $data=[];
 	var $CI;
 
@@ -24,7 +24,11 @@ class Edutype extends CI_Controller {
 
 	public function save(){ $this->controller(); }
 
-	public function del(){ $this->controller(); }
+	public function del($tb0301_id){
+		$this->db->delete("tb0301_subtests", array("tb0301_id" => $tb0301_id));
+		$this->db->delete("tb0302_questions", array("tb0302_tb0301_id" => $tb0301_id));
+		redirect($this->uri->segment(1) . "/lst"); 
+	}
 
 	public function controller()
 	{
@@ -37,30 +41,49 @@ class Edutype extends CI_Controller {
 		try 
 		{
 			$res=$this->tablecontroller->processor(
-				"tb0201_eduTypes" // $table
-				,true 		// $has_arch
+				"tb0301_subtests" // $table
+				,false 		// $has_arch
 				,true 		// $update_timestamp
 				,[			// $columns
-					"tb0201_id"=>[
+					"tb0301_id"=>[
 						"iskey"=>1
 						,"autoinc"=>1
 						,"type"=>"number"
-						,"template"=>"%tb0201_id%"
+						,"template"=>"%tb0304_id%"
 					]
-					,"tb0201_code"=>[
+					,"tb0304_name_ru"=>[
 						"iskey"=>0
 						,"type"=>"string"
-						,"template"=>"%tb0201_code%"
+						,"template"=>"%tb0304_name_ru%"
 					]
-					,"tb0201_name_ru"=>[
+					,"tb0304_name_kz"=>[
 						"iskey"=>0
 						,"type"=>"string"
-						,"template"=>"%tb0201_name_ru%"
+						,"template"=>"%tb0304_name_kz%"
+					], "tb0304_tb0202_id" => [
+						"iskey" => 0, "type" => "number", "template" => "%tb0202_specialities.tb0202_name_ru%"
+					], "tb0304_variant" => [
+						"iskey" => 0, "type" => "string", "template" => "%tb0304_variant%"
 					]
-					,"tb0201_name_kz"=>[
+					,"tb0304_desc_ru"=>[
 						"iskey"=>0
 						,"type"=>"string"
-						,"template"=>"%tb0201_name_kz%"
+						,"template"=>"%tb0304_desc_ru%"
+					]
+					,"tb0304_desc_kz"=>[
+						"iskey"=>0
+						,"type"=>"string"
+						,"template"=>"%tb0304_desc_kz%"
+					]
+					,"tb0304_created"=>[
+						"iskey"=>0
+						,"type"=>"datetime"
+						,"template"=>"%tb0304_created%"
+					]
+					,"tb0304_createdby"=>[
+						"iskey"=>0
+						,"type"=>"number"
+						,"template"=>"%tb0101_users.tb0101_name2% %tb0101_users.tb0101_name1%"
 					]
 				]
 				,2			// $cmdSegment
@@ -80,7 +103,7 @@ class Edutype extends CI_Controller {
 		$data=array();
 		if($this->uri->segment(3))
 		{
-			$data=$this->db->get_where("tb0102_co",array("tb0102_id"=>urldecode($this->uri->segment(3))))->row_array();
+			$data=$this->db->get_where("tb0304_subtests",array("tb0304_id"=>urldecode($this->uri->segment(3))))->row_array();
 			if(!$data||!count($data)) throw new Exception("Запись не найдена");
 		}
 

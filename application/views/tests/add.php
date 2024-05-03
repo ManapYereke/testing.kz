@@ -4,7 +4,7 @@
 <div class="container-fluid">
 	<div class="page-header animated slideInDown">
 		<h1 class="text-muted discount-card-text">
-			<i class="far fa-plus-square"></i> Добавить вид обучения
+			<i class="far fa-plus-square"></i> Добавить тест
 		</h1>
 	</div>
 	<div class="row">
@@ -38,6 +38,7 @@
 
 	ONLOAD.push(function(){
 		$("#dataform").submit(function(){
+			// tinyMCE.triggerSave();
 			// if(!$("#dataform").valid()) return false;
 
 			sendAsPost({

@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://certification.gov4c.kz/';
+$config['base_url'] = 'http://testing.kz:81/';
 /*$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
 $config['base_url'] = $protocol . '://certification.gov4c.kz/';*/
 
