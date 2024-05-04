@@ -3,7 +3,7 @@
 <div class="container-fluid">
 	<div class="page-header animated slideInDown">
 		<h1 class="text-muted discount-card-text">
-			<span class="glyphicon glyphicon-pencil"></span> Редактировать тест
+			<span class="glyphicon glyphicon-pencil"></span> Редактировать вид теста
 		</h1>
 	</div>
 	<div class="row">
@@ -61,7 +61,7 @@
 					url: "<?= site_url($this->uri->segment(1) . "/" . "del/" . $this->uri->segment(3)) ?>",
 					title: "Удаление",
 					data: {
-						"tb0304_id": "<?= $this->uri->segment(3) ?>"
+						"tb0203_id": "<?= $this->uri->segment(3) ?>"
 					},
 					callbackOk: function() {
 						location.href = "<?= site_url($this->uri->segment(1)) ?>"

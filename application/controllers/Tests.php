@@ -1,7 +1,7 @@
 <?php
 defined("BASEPATH") OR exit("No direct script access allowed");
 
-class Subtest extends CI_Controller {
+class Tests extends CI_Controller {
 	var $data=[];
 	var $CI;
 
@@ -24,9 +24,8 @@ class Subtest extends CI_Controller {
 
 	public function save(){ $this->controller(); }
 
-	public function del($tb0301_id){
-		$this->db->delete("tb0301_subtests", array("tb0301_id" => $tb0301_id));
-		$this->db->delete("tb0302_questions", array("tb0302_tb0301_id" => $tb0301_id));
+	public function del($tb0304_id){
+		$this->db->delete("tb0304_tests", array("tb0304_id" => $tb0304_id));
 		redirect($this->uri->segment(1) . "/lst"); 
 	}
 
@@ -41,11 +40,11 @@ class Subtest extends CI_Controller {
 		try 
 		{
 			$res=$this->tablecontroller->processor(
-				"tb0301_subtests" // $table
+				"tb0304_tests" // $table
 				,false 		// $has_arch
 				,true 		// $update_timestamp
 				,[			// $columns
-					"tb0301_id"=>[
+					"tb0304_id"=>[
 						"iskey"=>1
 						,"autoinc"=>1
 						,"type"=>"number"
@@ -62,6 +61,8 @@ class Subtest extends CI_Controller {
 						,"template"=>"%tb0304_name_kz%"
 					], "tb0304_tb0202_id" => [
 						"iskey" => 0, "type" => "number", "template" => "%tb0202_specialities.tb0202_name_ru%"
+					], "tb0304_tb0203_id" => [
+						"iskey" => 0, "type" => "number", "template" => "%tb0203_test_types.tb0203_name_ru%"
 					], "tb0304_variant" => [
 						"iskey" => 0, "type" => "string", "template" => "%tb0304_variant%"
 					]
