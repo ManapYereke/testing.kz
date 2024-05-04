@@ -9,8 +9,14 @@ class Speciality extends CI_Controller
     function __construct()
     {
         parent::__construct();
-
         $this->data["tb0101"] = $this->session->userdata("tb0101");
+        $l = $this->input->post("lang");
+        if (!$l) {
+            $l = $this->input->get("lang") ? $this->input->get("lang") : "kz";
+        }
+        $path = APPPATH . 'language' . DIRECTORY_SEPARATOR . 'lang_' . $l . ".php";
+        include $path;
+        $this->data["lang"] = $lang;
     }
 
     public function index()
@@ -25,11 +31,14 @@ class Speciality extends CI_Controller
 
     public function add()
     {
+        $this->data["title"] = $this->data["lang"]["add_speciality"];
         $this->controller();
     }
 
     public function edit()
     {
+        $this->data["title"] = $this->data["lang"]["edit_speciality"];
+        $this->data["id"] = "tb0202_id";
         $this->controller();
     }
 
@@ -84,7 +93,7 @@ class Speciality extends CI_Controller
                     //"tb0102_tb0101_id"=>$this->data["tb0101"]->tb0101_idn
                 ]
             );
-            if ($res) die(json_encode(array("result" => "Операция завершена успешно.", "id" => $res)));
+            if ($res) die(json_encode(array("result" => $this->data["lang"]["operation_success"], "id" => $res)));
         } catch (Exception $e) {
             //die($e->getMessage());
             die(json_encode(array("error" => $e->getMessage())));
@@ -93,10 +102,13 @@ class Speciality extends CI_Controller
         $data = array();
         if ($this->uri->segment(3)) {
             $data = $this->db->get_where("tb0202_specialities", array("tb0202_id" => urldecode($this->uri->segment(3))))->row_array();
-            if (!$data || !count($data)) throw new Exception("Запись не найдена");
+            if (!$data || !count($data)) throw new Exception($this->data["lang"]["record_not_found"]);
         }
 
         $this->data = array_merge($this->data, $data);
-        $this->load->view($this->uri->segment(1) . "/" . $this->uri->segment(2), $this->data);
+        if (in_array($this->uri->segment(2), ["edit", "add"]))
+            $this->load->view("shared/" . $this->uri->segment(2), $this->data);
+        else
+            $this->load->view($this->uri->segment(1) . "/" . $this->uri->segment(2), $this->data);
     }
 }
