@@ -63,7 +63,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 						"targets": [0, 1, 2],
 						"render": function(data, type, row) {
 							if (!data) return "";
-							return '<a href="<?= site_url($this->uri->segment(1) . "/edit") ?>/' + row.tb0202_id + '">' + data + '</a>';
+							return '<a href="<?= site_url($this->uri->segment(1) . "/edit") ?>/' + row.tb0203_id + '">' + data + '</a>';
 						}
 					}]
 				}).on('draw.dt', function() {

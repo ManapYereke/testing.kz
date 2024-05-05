@@ -5,7 +5,7 @@
         <a class="dropdown-item" href="<?= site_url("testtype/lst") ?>">Виды теста</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="<?= site_url("subtest/lst") ?>">Субтесты</a>
-        <a class="dropdown-item" href="<?= site_url("subtest/lst") ?>">Тесты</a>
+        <a class="dropdown-item" href="<?= site_url("tests/lst") ?>">Тесты</a>
         <a class="dropdown-item" href="<?= site_url("question/lst") ?>">Вопросы</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="<?= site_url("test/dlJSON") ?>">Выгрузить данные JSON</a>

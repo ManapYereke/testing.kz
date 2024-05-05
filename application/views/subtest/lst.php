@@ -20,12 +20,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 					<tr>
 						<th>ID</th>
 						<th>Индекс сортировки</th>
-						<th>Время</th>
 						<th>Название на русском</th>
 						<th>Название на казахском</th>
 						<th>Проходной балл</th>
-						<th>Специальность</th>
-						<th>Номер варианта</th>
 						<th>Дата/время</th>
 						<th>Автор</th>
 					</tr>
@@ -67,9 +64,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 						"data": "tb0301_order",
 						"className": "text-center"
 					}, {
-						"data": "tb0301_timelimit",
-						"className": "text-center"
-					}, {
 						"data": "tb0301_name_ru",
 						"className": "text-center"
 					}, {
@@ -77,12 +71,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 						"className": "text-center"
 					}, {
 						"data": "tb0301_min",
-						"className": "text-center"
-					}, {
-						"data": "tb0301_tb0202_id",
-						"className": "text-center"
-					}, {
-						"data": "tb0301_variant",
 						"className": "text-center"
 					}, {
 						"data": "tb0301_created",

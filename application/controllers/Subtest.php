@@ -73,16 +73,10 @@ class Subtest extends CI_Controller
 						"iskey" => 1, "autoinc" => 1, "type" => "number", "template" => "%tb0301_id%"
 					], "tb0301_order" => [
 						"iskey" => 0, "type" => "number", "template" => "%tb0301_order%"
-					], "tb0301_timelimit" => [
-						"iskey" => 0, "type" => "number", "template" => "%tb0301_timelimit%"
 					], "tb0301_name_ru" => [
 						"iskey" => 0, "type" => "string", "template" => "%tb0301_name_ru%"
 					], "tb0301_name_kz" => [
 						"iskey" => 0, "type" => "string", "template" => "%tb0301_name_kz%"
-					], "tb0301_tb0202_id" => [
-						"iskey" => 0, "type" => "number", "template" => "%tb0202_specialities.tb0202_name_ru%"
-					], "tb0301_variant" => [
-						"iskey" => 0, "type" => "string", "template" => "%tb0301_variant%"
 					], "tb0301_desc_ru" => [
 						"iskey" => 0, "type" => "string", "template" => ""
 					], "tb0301_desc_kz" => [

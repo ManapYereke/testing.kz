@@ -5,18 +5,20 @@ class Tests extends CI_Controller
 {
 	var $data = [];
 	var $CI;
+	private $l;
 
 	function __construct()
 	{
 		parent::__construct();
 		$this->data["tb0101"] = $this->session->userdata("tb0101");
-		$l = $this->input->post("lang");
-		if (!$l) {
-			$l = $this->input->get("lang") ? $this->input->get("lang") : "kz";
+		$this->l = $this->input->post("lang");
+		if (!$this->l) {
+			$this->l = $this->input->get("lang") ? $this->input->get("lang") : "kz";
 		}
-		$path = APPPATH . 'language' . DIRECTORY_SEPARATOR . 'lang_' . $l . ".php";
+		$path = APPPATH . 'language' . DIRECTORY_SEPARATOR . 'lang_' . $this->l . ".php";
 		include $path;
 		$this->data["lang"] = $lang;
+		$this->data["l"] = $this->l;
 	}
 
 	public function index()
@@ -75,10 +77,10 @@ class Tests extends CI_Controller
 						"iskey" => 0, "type" => "string", "template" => "%tb0304_name_ru%"
 					], "tb0304_name_kz" => [
 						"iskey" => 0, "type" => "string", "template" => "%tb0304_name_kz%"
-					], "tb0304_tb0202_id" => [
-						"iskey" => 0, "type" => "number", "template" => "%tb0202_specialities.tb0202_name_ru%"
-					], "tb0304_tb0203_id" => [
-						"iskey" => 0, "type" => "number", "template" => "%tb0203_test_types.tb0203_name_ru%"
+					], "tb0304_0202_id" => [
+						"iskey" => 0, "type" => "number", "template" => "%tb0202_specialities.tb0202_name_$this->l%"
+					], "tb0304_0203_id" => [
+						"iskey" => 0, "type" => "number", "template" => "%tb0203_testtypes.tb0203_name_$this->l%"
 					], "tb0304_variant" => [
 						"iskey" => 0, "type" => "string", "template" => "%tb0304_variant%"
 					], "tb0304_desc_ru" => [
@@ -99,7 +101,23 @@ class Tests extends CI_Controller
 					//"tb0102_tb0101_id"=>$this->data["tb0101"]->tb0101_idn
 				]
 			);
-			if ($res) die(json_encode(array("result" => $this->data["lang"]["operation_success"], "id" => $res)));
+			if ($res){
+				$subtest_id = $this->input->post("tb0305_0301_id");
+				$test_id = $this->input->post("tb0304_id");
+				if(!$test_id)
+					$test_id = $this->db->select_max('tb0304_id')->get('tb0304_tests')->row()->tb0304_id;
+				// Удаляем предыдущие связи для этого теста
+				$this->db->delete("tb0305_tests_subtests", array("tb0305_0304_id" => $test_id));
+
+				// Сохраняем новые связи в таблице tb0305_subtests
+				foreach ($subtest_id as $sid) {
+					$this->db->insert("tb0305_tests_subtests", array(
+						"tb0305_0301_id" => $sid,
+						"tb0305_0304_id" => $test_id
+					));
+				}
+				die(json_encode(array("result" => $this->data["lang"]["operation_success"], "id" => $res)));
+			}
 		} catch (Exception $e) {
 			//die($e->getMessage());
 			die(json_encode(array("error" => $e->getMessage())));
@@ -107,7 +125,7 @@ class Tests extends CI_Controller
 
 		$data = array();
 		if ($this->uri->segment(3)) {
-			$data = $this->db->get_where("tb0304_subtests", array("tb0304_id" => urldecode($this->uri->segment(3))))->row_array();
+			$data = $this->db->get_where("tb0304_tests", array("tb0304_id" => urldecode($this->uri->segment(3))))->row_array();
 			if (!$data || !count($data)) throw new Exception($this->data["lang"]["record_not_found"]);
 		}
 

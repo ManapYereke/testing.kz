@@ -18,16 +18,7 @@ $fields=[
 		,"class"=>"form-control"
 		,"desc"=>"Индекс сортировки определяющий порядок"
 		,"required"=>true
-	]	
-	,[
-		"id"=>"tb0301_timelimit"
-		,"type"=>"text"
-		,"mask"=>"00000"
-		,"title"=>"Лимит времени (мин.)"
-		,"class"=>"form-control"
-		,"desc"=>"Лимит времени в минутах"
-		,"required"=>true
-	]	
+	]		
 	,[
 		"id"=>"tb0301_name_ru"
 		,"type"=>"text"
@@ -66,25 +57,6 @@ $fields=[
 		, "desc" => "Проходной балл"
 		, "required" => true
 	]	
-	,[
-		"id"=>"tb0301_tb0202_id",
-		"type" => "dropdown",
-		"title" => "Специальность",
-		"sql" => "SELECT * FROM tb0202_specialities",
-		"class" => "selectpicker w-100",
-		"fieldId" => "tb0202_id",
-		"fieldText" => "tb0202_name_ru",
-		"desc" => "",
-		"required" => true
-	], [
-		"id" => "tb0301_variant", 
-		"type" => "number", 
-		"mask" => "00", 
-		"title" => "Номер варианта", 
-		"class" => "form-control", 
-		"desc" => "Номер варианта", 
-		"required" => true
-	]
 ];
 echo $this->html->formGroups($fields);
 // $params=array("fields"=>$fields);

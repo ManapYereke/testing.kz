@@ -55,7 +55,7 @@ class Testtype extends CI_Controller
     public function del($tb0203_id)
     {
         // Удаление специальности по tb0202_id
-        $this->db->delete("tb0203_test_types", array("tb0203_id" => $tb0203_id));
+        $this->db->delete("tb0203_testtypes", array("tb0203_id" => $tb0203_id));
 
         // Перенаправление на список специальностей
         redirect($this->uri->segment(1) . "/lst");
@@ -70,7 +70,7 @@ class Testtype extends CI_Controller
 
         try {
             $res = $this->tablecontroller->processor(
-                "tb0203_test_types" // $table
+                "tb0203_testtypes" // $table
                 ,
                 false         // $has_arch
                 ,
@@ -101,7 +101,7 @@ class Testtype extends CI_Controller
 
         $data = array();
         if ($this->uri->segment(3)) {
-            $data = $this->db->get_where("tb0203_test_types", array("tb0203_id" => urldecode($this->uri->segment(3))))->row_array();
+            $data = $this->db->get_where("tb0203_testtypes", array("tb0203_id" => urldecode($this->uri->segment(3))))->row_array();
             if (!$data || !count($data)) throw new Exception($this->data["lang"]["record_not_found"]);
         }
 

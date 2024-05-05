@@ -1,16 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 ?>
-<? $this->load->view("shared/header", $this->_ci_cached_vars);
-if (!$this->input->get('lang') || $this->input->get('lang') == 'kz') {
-	$file = 'lang_kz.php';
-	$l = 'kz';
-} else {
-	$file = 'lang_ru.php';
-	$l = 'ru';
-}
-include __DIR__ . '/../shared/' . $file; ?>
-
+<? $this->load->view("shared/header", $this->_ci_cached_vars);?>
 
 <div class="container">
 	<div class="step step0">
@@ -30,11 +21,11 @@ include __DIR__ . '/../shared/' . $file; ?>
 			], [
 				"id" => "tb0101_name3", "type" => "string", "title" => $lang["fname"], "class" => "form-control"
 			], [
-				"id" => "tb0101_tb0204_id", "type" => "dropdown", "title" => $lang["service"], "sql" => "SELECT * FROM tb0204_services", "class" => "selectpicker w-100", "fieldId" => "tb0204_id", "fieldText" => "tb0204_name_" . $l, "required" => true
+				"id" => "tb0101_tb0203_id", "type" => "dropdown", "title" => $lang["test_type"], "sql" => "SELECT * FROM tb0203_testtypes", "class" => "selectpicker w-100", "fieldId" => "tb0203_id", "fieldText" => "tb0203_name_" . $l, "required" => true
 			], [
 				"id" => "tb0202_id", "type" => "dropdown", "title" => $lang["speciality"], "sql" => "SELECT * FROM tb0202_specialities", "class" => "selectpicker w-100", "fieldId" => "tb0202_id", "fieldText" => "tb0202_name_" . $l, "required" => true, "data-filter-id" => true
 			], [
-				"id" => "tb0101_tb0203_id", "type" => "dropdown", "title" => $lang["position"], "sql" => "SELECT * FROM tb0203_positions WHERE tb0203_speciality_id=0", "class" => "selectpicker w-100", "fieldId" => "tb0203_id", "fieldText" => "tb0203_name_" . $l, "required" => true
+			 	"id" => "tb0101_tb0304_id", "type" => "dropdown", "title" => "Тест", "sql" => "SELECT * FROM tb0304_tests", "class" => "selectpicker w-100", "fieldId" => "tb0304_id", "fieldText" => "tb0304_name_" . $l, "required" => true
 			], [
 				"id" => "tb0101_tb0002_id", "type" => "dropdown", "title" => $lang["lang"], "sql" => "SELECT * FROM tb0002_langs", "class" => "selectpicker w-100", "fieldId" => "tb0002_id", "fieldText" => "tb0002_name_ru", "desc" => "", "required" => true
 			]
