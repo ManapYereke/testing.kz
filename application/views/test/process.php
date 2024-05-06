@@ -4,20 +4,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 //Дата-15.03.2023
 //Оптимизированная версия
 ?>
-<? $this->load->view("shared/header", $this->_ci_cached_vars);
-if (!$this->input->get('lang') || $this->input->get('lang') == 'kz') {
-    $file = 'lang_kz.php';
-    $l = 'kz';
-} else {
-    $file = 'lang_ru.php';
-    $l = 'ru';
-}
-include __DIR__ . '/../shared/' . $file; ?>
+<? $this->load->view("shared/header", $this->_ci_cached_vars);?>
 
 <?
 $tb0101_id = $this->uri->segment(3);
-$speciality = $this->session->userdata("speciality");
-$variant = $this->session->userdata("variant");
 ?>
 
 <!-- <h1><?= $this->session->userdata("lang") ?></h1> -->
@@ -28,14 +18,13 @@ $variant = $this->session->userdata("variant");
         $step = 0;
         $questions = array();
         $navlinks = array();
-        $tb0301 = $this->db->query("SELECT * FROM tb0301_subtests WHERE tb0301_tb0202_id=$speciality AND tb0301_variant=$variant")->result();
         foreach ($tb0301 as $r1) {
             $tb0302 = $this->db->query("SELECT * FROM tb0302_questions WHERE tb0302_tb0301_id=?", [$r1->tb0301_id])->result();
             shuffle($tb0302);
             $step++;
             $i = 0;
         ?>
-            <div id="tb0301-<?= $r1->tb0301_id ?>" class="card mt-2 step<?= $step == 1 ? "" : " d-none" ?>" tb0301_timelimit="<?= $r1->tb0301_timelimit ?>">
+            <div id="tb0301-<?= $r1->tb0301_id ?>" class="card mt-2 step<?= $step == 1 ? "" : " d-none" ?>" <?//tb0301_timelimit="<?= $r1->tb0301_timelimit ?>>
                 <h5 class="card-header"><?= $this->utils->t([$r1->tb0301_name_ru, $r1->tb0301_name_kz]) ?> <span class="badge badge-secondary">00:00</span></h5>
                 <div class="card-body">
                     <div class="intro">
@@ -142,7 +131,7 @@ $variant = $this->session->userdata("variant");
         var step = parseInt(card.attr("step"));
 
         // Set the date we're counting down to
-        var tb0301_timelimit = card.attr("tb0301_timelimit") + ":00";
+        /*var tb0301_timelimit = card.attr("tb0301_timelimit") + ":00";
         card.find(".card-header").find(".badge").text(tb0301_timelimit);
 
         // Update the count down every 1 second
@@ -172,7 +161,7 @@ $variant = $this->session->userdata("variant");
                     stepEnd();
                 } else finish(1);
             }
-        }, 1000);
+        }, 1000);*/
     }
 
     function stepEnd() {

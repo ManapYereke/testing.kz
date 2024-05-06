@@ -12,6 +12,14 @@ class Test extends CI_Controller
 		// die("SYSTEM OFF");
 
 		$this->data["tb0101"] = $this->session->userdata("tb0101");
+		$this->l = $this->input->post("lang");
+		if (!$this->l) {
+			$this->l = $this->input->get("lang") ? $this->input->get("lang") : "kz";
+		}
+		$path = APPPATH . 'language' . DIRECTORY_SEPARATOR . 'lang_' . $this->l . ".php";
+		include $path;
+		$this->data["lang"] = $lang;
+		$this->data["l"] = $this->l;
 	}
 
 	public function index()
@@ -139,16 +147,20 @@ WHERE tb0101_tb0003_id=0 AND tb0101_deleted=0
 			"tb0101_idn" => $this->input->post("tb0101_idn", 1),
 			"tb0101_phone1" => $this->input->post("tb0101_phone1", 1),
 			"tb0101_tb0002_id" => $this->input->post("tb0101_tb0002_id", 1),
-			"tb0101_tb0201_id" => 0,
 			"tb0101_name1" => $this->input->post("tb0101_name1", 1),
 			"tb0101_name2" => $this->input->post("tb0101_name2", 1),
 			"tb0101_name3" => $this->input->post("tb0101_name3", 1),
-			"tb0101_tb0203_id" => $this->input->post("tb0101_tb0203_id"),
-			"tb0101_tb0204_id" => $this->input->post("tb0101_tb0204_id")
 		];
+		$tb0202_id = $this->input->post("tb0202_id", 1);
+		$tb0203_id = $this->input->post("tb0203_id", 1);
 		$l = "kz";
-		if($d['tb0101_tb0002_id']==1)
+		if($d['tb0101_tb0002_id'] == 1)
 			$l="ru";
+		$variants = $this->db->get_where("tb0304_tests", ["tb0304_0202_id" => $tb0202_id, "tb0304_0203_id" => $tb0203_id])->result_array();
+		if (!empty($variants)) {
+			$randomVariant = $variants[array_rand($variants)];
+			$d["tb0101_tb0304_id"] = $randomVariant["tb0304_id"];
+		}
 		// Check if tb0101_idn exists in the table
 		$existingRecord = $this->db->get_where("tb0101_users", ["tb0101_idn" => $d["tb0101_idn"]])->row();
 		if ($existingRecord) {
@@ -175,28 +187,18 @@ WHERE tb0101_tb0003_id=0 AND tb0101_deleted=0
 
 	public function process()
 	{
-		$query = $this->db->select('tb0101_users.*, tb0203_positions.tb0203_speciality_id')
-		->from('tb0101_users')
-		->join('tb0203_positions', 'tb0101_users.tb0101_tb0203_id = tb0203_positions.tb0203_id')
-		->where('tb0101_users.tb0101_id', $this->uri->segment(3))
-			->get();
-
-		$result = $query->row_array();
-		$s_id = $result['tb0203_speciality_id'];
-
-		$variants = $this->db->get_where("tb0301_subtests", ["tb0301_tb0202_id" => $s_id])->result_array();
-		$variant = 1;
-		if (!empty($variants)) {
-			$randomVariant = $variants[array_rand($variants)];
-			$variant = $randomVariant['tb0301_variant'];
-		}
-
+		$result = $this->db->get_where("tb0101_users", ["tb0101_id" => $this->uri->segment(3)])->row_array();
 		$this->data = array_merge($this->data, $result);
 		$this->session->set_userdata("lang", $result["tb0101_tb0002_id"] == 2 ? "kz" : "ru");
-		$this->session->set_userdata("speciality", $s_id);
-		$this->session->set_userdata("variant", $variant);
+		$subtests = $this->db->get_where("tb0305_tests_subtests", ["tb0305_0304_id" => $result["tb0101_tb0304_id"]])->result_array();
+		$subtest_ids = [];
+		foreach ($subtests as $subtest) {
+			// Добавляем значение поля tb0305_0301_id в массив $subtest_ids
+			$subtest_ids[] = $subtest['tb0305_0301_id'];
+		}
+		$this->db->where_in("tb0301_id", $subtest_ids);
+		$this->data["tb0301"] = $this->db->get("tb0301_subtests")->result();
 		$this->load->view($this->uri->segment(1) . "/" . $this->uri->segment(2), $this->data);
-
 	}
 
 	public function save()

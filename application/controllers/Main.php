@@ -33,16 +33,17 @@ class Main extends CI_Controller
 		if ($this->input->post("tb0202_id")) {
 			$l = $this->input->post("lang");
 			$tb0202_id = $this->input->post("tb0202_id");
-			$positions = $this->db->query("SELECT * FROM tb0203_positions WHERE tb0203_speciality_id = $tb0202_id")->result();
+			$tb0203_id = $this->input->post("tb0203_id");
+			//$tests = $this->db->query("SELECT * FROM tb0304_tests WHERE tb0304_0202_id = $tb0202_id AND ")->result();
+			$tests = $this->db->get_where("tb0304_tests", ["tb0304_0202_id" => $tb0202_id, "tb0304_0203_id" => $tb0203_id])->result();
 			$options = [];
 
-			foreach ($positions as $p) {
+			foreach ($tests as $t) {
 				$options[] = [
-					'value' => $p->tb0203_id,
-					'text' => $p->{"tb0203_name_" . $l},
+					'value' => $t->tb0304_id,
+					'text' => $t->{"tb0304_name_" . $l},
 				];
 			}
-
 			die(json_encode($options));
 		}
 	}

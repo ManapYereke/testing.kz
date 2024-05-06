@@ -4,12 +4,13 @@ $tb0101 = $this->session->userdata("tb0101");
 
 $readOnly = isset($readOnly) ? $readOnly : false;
 $cmdSegment = 2;
-
+if(isset($tb0304_id)) {
 $subtests = $this->db->get_where("tb0305_tests_subtests", ["tb0305_0304_id" => $tb0304_id])->result_array();
 $subtest_ids = [];
 foreach ($subtests as $subtest) {
 	// Добавляем значение поля tb0305_0301_id в массив $subtest_ids
 	$subtest_ids[] = $subtest['tb0305_0301_id'];
+}
 }
 
 $fields = [
@@ -36,9 +37,8 @@ $fields = [
 echo $this->html->formGroups($fields);
 ?>
 <script>
-	//document.getElementById("tb0305_0301_id").value = <?= json_encode($subtest_ids) ?>;
 	ONLOAD.push(function() {
-		console.log('djhb')
 		$('#tb0305_0301_id').val(<?= json_encode($subtest_ids) ?>)
+		$('#tb0305_0301_id').selectpicker('refresh');
 	})
 </script>
