@@ -38,13 +38,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <script type="text/javascript">
 	ONLOAD.push(function() {
-		console.log('fv');
+		const lang = new URLSearchParams(window.location.search).get("lang");
 		$('.table').dataTable({
 			'ajax': '<?= site_url($this->uri->segment(1) . "/lst") ?>'
 				// ,'scrollY': '481px'
 				// ,'scrollCollapse': true
 				,
-			'language': DT_LANG,
+			'language': lang === "ru" ? DT_LANG_RU : DT_LANG_KZ,
 			"order": [
 				[1, 'desc']
 			],

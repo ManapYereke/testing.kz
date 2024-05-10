@@ -10,7 +10,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		<div class="content-container">
 			<div class="page-header animated slideInDown">
 				<h1 class="text-muted discount-card-text">
-					<i class="fas fa-list"></i><?=$lang["users"]?>
+					<i class="fas fa-list"></i><?= $lang["users"] ?>
 				</h1>
 			</div>
 
@@ -18,10 +18,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th><?=$lang["idn"]?></th>
-						<th>Группа</th>
-						<th><?=$lang["surname"]?></th>
-						<th><?=$lang["name"]?></th>
+						<th><?= $lang["idn"] ?></th>
+						<th><?= $lang["group"] ?></th>
+						<th><?= $lang["surname"] ?></th>
+						<th><?= $lang["name"] ?></th>
 					</tr>
 				</thead>
 				<tfoot>
@@ -40,17 +40,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <script type="text/javascript">
 	ONLOAD.push(function() {
+		const lang = new URLSearchParams(window.location.search).get("lang");
 		$('.table').dataTable({
 			'ajax': '<?= site_url($this->uri->segment(1) . "/lst") ?>'
 				// ,'scrollY': '481px'
 				// ,'scrollCollapse': true
 				,
-			'language': DT_LANG,
+			'language': lang === "ru" ? DT_LANG_RU : DT_LANG_KZ,
 			"order": [
 				[1, 'desc']
 			],
 			initComplete: function() {
-				$('.dataTables_length').prepend('<a class="btn btn-primary btn-sm" href="<?= site_url($this->uri->segment(1) . "/add") ?>"><i class="far fa-plus-square"></i> Добавить пользователя</a>&nbsp;&nbsp;&nbsp;');
+				$('.dataTables_length').prepend('<a class="btn btn-primary btn-sm" href="<?= site_url($this->uri->segment(1) . "/add") ?>"><i class="far fa-plus-square"></i> <?= $lang["add_user"] ?></a>&nbsp;&nbsp;&nbsp;');
 			}
 		}).on('draw.dt', function() {
 			// if($('.dataTables_length .btn').length) return;

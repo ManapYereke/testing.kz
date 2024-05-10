@@ -55,8 +55,12 @@ $lang=[
     "signature"=> "<b>Подпись</b><br>м.п.",
     "fio"=>"Ф.И.О.<br>
     Должность сотрудника НАО",
-    "correctAnswers"=>"Правильных ответов:",
-    "incorrectAnswers" => "Неправильных ответов:",
+    "correctAnswers"=>"Правильных ответов",
+    "incorrectAnswers" => "Неправильных ответов",
+    "testing_finished" => "Тестирование завершено",
+    "result" => "Результат",
+    "question_count" => "Всего вопросов",
+    "total" => "ИТОГО",
     //questionController
     "add_question" => "Добавить вопрос",
     "edit_question" => "Редактировать данные вопроса",
@@ -97,8 +101,8 @@ $lang=[
     "desc_name_ru"=>"Название субтеста на русском",
     "text_kz"=>"Текст на казахском",
     "desc_name_kz"=>"Название субтеста на казахском",
-    "questionAnswer_ru"=>"Ответ на вопрос на русском",
-    "questionAnswer_kz"=>"Ответ на вопрос на русском",
+    "question_answer_ru"=>"Ответ на вопрос на русском",
+    "question_answer_kz"=>"Ответ на вопрос на русском",
 
     //views/ist/
     "questions"=>"Вопросы",
@@ -110,7 +114,7 @@ $lang=[
     "special_kz"=> "Название специальности на казахском",
 
     //views/specialization_ru_kz/
-    "special"=>"Специальности",
+    "specialities"=>"Специальности",
 
     //views/subtest1/
     "sorting_order"=>"Порядок сортировки (0-254)",
@@ -122,7 +126,7 @@ $lang=[
     "name_types_kz"=> "Название вида тестирования на казахском",
 
     //views/testtype2/
-    "testtypest"=>"Виды тестирования",
+    "testtypes"=>"Виды тестирования",
 
     //views/users/
     "to_come_in"=>"ВОЙТИ",

@@ -4,6 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Test extends CI_Controller
 {
 	var $data = [];
+	private $l;
 
 	function __construct()
 	{
@@ -235,15 +236,12 @@ SELECT
 	tb0301_name_ru
     ,tb0301_name_kz
 	,tb0301_min
-	,tb0203_name_ru
-	,tb0203_name_kz
     ,SUM(IF(tb0303_value=tb0302_answer,1,0)) v
-	,SUM(IF(tb0303_value!=tb0302_answer,1,0)) w
+	,COUNT(tb0303_value) c
 FROM tb0101_users
 INNER JOIN tb0303_answers ON tb0303_tb0101_id=tb0101_id
 INNER JOIN tb0302_questions ON tb0302_id=tb0303_tb0302_id
 INNER JOIN tb0301_subtests ON tb0301_id=tb0302_tb0301_id
-INNER JOIN tb0203_positions ON tb0203_id=tb0101_tb0203_id
 WHERE tb0101_id=?
 GROUP BY tb0301_order, tb0301_name_ru ,tb0301_name_kz, tb0301_min
 ORDER BY tb0301_order

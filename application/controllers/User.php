@@ -4,18 +4,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class User extends CI_Controller
 {
 	var $data = [];
+	private $l;
 
 	function __construct()
 	{
 		parent::__construct();
 		$this->data["tb0101"] = $this->session->userdata("tb0101");
-		$l = $this->input->post("lang");
-		if (!$l) {
-			$l = $this->input->get("lang") ? $this->input->get("lang") : "kz";
+		$this->l = $this->input->post("lang");
+		if (!$this->l) {
+			$this->l = $this->input->get("lang") ? $this->input->get("lang") : "kz";
 		}
-		$path = APPPATH . 'language' . DIRECTORY_SEPARATOR . 'lang_' . $l . ".php";
+		$path = APPPATH . 'language' . DIRECTORY_SEPARATOR . 'lang_' . $this->l . ".php";
 		include $path;
 		$this->data["lang"] = $lang;
+		$this->data["l"] = $this->l;
 	}
 
 	public function passwd()
@@ -104,7 +106,7 @@ class User extends CI_Controller
 			}
 		}
 
-		$this->load->view($this->uri->segment(1) . "/" . $this->uri->segment(2));
+		$this->load->view($this->uri->segment(1) . "/" . $this->uri->segment(2), $this->data);
 	}
 
 
@@ -214,7 +216,7 @@ class User extends CI_Controller
 					], "tb0101_idn" => [
 						"iskey" => 0, "type" => "string", "template" => "%tb0101_idn%"
 					], "tb0101_tb0003_id" => [
-						"iskey" => 0, "type" => "string", "template" => "%tb0003_groups.tb0003_name_ru%"
+						"iskey" => 0, "type" => "string", "template" => "%tb0003_groups.tb0003_name_$this->l%"
 					], "tb0101_name1" => [
 						"iskey" => 0, "type" => "string", "template" => "%tb0101_name1%"
 					], "tb0101_name2" => [

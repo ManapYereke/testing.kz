@@ -13,17 +13,17 @@ $fields=[
 	,[
 		"id"=>"tb0203_name_ru"
 		,"type"=>"text"
-		,"title"=>"{$lang['sname_types_ru']}"
+		,"title"=>"{$lang['name_types_ru']}"
 		,"class"=>"form-control"
-		,"desc"=> "{$lang['sname_types_ru']}"
+		,"desc"=> "{$lang['name_types_ru']}"
 		,"required"=>true
 	]
 	,[
 		"id"=>"tb0203_name_kz"
 		,"type"=>"text"
-		,"title"=> "{$lang['sname_types_kz']}"
+		,"title"=> "{$lang['name_types_kz']}"
 		,"class"=>"form-control"
-		,"desc"=> "{$lang['sname_types_kz']}"
+		,"desc"=> "{$lang['name_types_kz']}"
 		,"required"=>true
 	]
 ];

@@ -14,47 +14,47 @@ $fields=[
 		"id"=>"tb0301_order"
 		,"type"=>"text"
 		,"mask"=>"00000"
-		,"title"=>"{$lang['sorting_order']}"
+		,"title"=> $lang['sorting_order']
 		,"class"=>"form-control"
-		,"desc"=>"{$lang['order_index']}"
+		,"desc"=> $lang['order_index']
 		,"required"=>true
 	]		
 	,[
 		"id"=>"tb0301_name_ru"
 		,"type"=>"text"
-		,"title"=>"{$lang['name_ru']}"		
+		,"title"=> $lang['name_ru']	
 		,"class"=>"form-control"
-		,"desc"=>"{$lang[' desc_name_ru']}"	
+		,"desc"=> $lang['desc_name_ru']	
 		,"required"=>true
 	]
 	,[
 		"id"=>"tb0301_name_kz"
 		,"type"=>"text"
-		,"title"=>"{$lang['name_kz']}"
+		,"title"=> $lang['name_kz']
 		,"class"=>"form-control"
-		,"desc"=>"{$lang[' desc_name_kz']}"	
+		,"desc"=> $lang['desc_name_kz']	
 		,"required"=>true
 	]
 	,[
 		"id"=>"tb0301_desc_ru"
 		,"type"=>"textarea"
-		,"title"=>"{$lang['desc_ru']}" 
+		,"title"=> $lang['desc_ru'] 
 		,"class"=>"form-control"
-		,"desc"=>"{$lang['desc_name_ru']}"
+		,"desc"=> $lang['desc_name_ru']
 		,"required"=>true
 	], [
 		"id" => "tb0301_desc_kz", 
 		"type" => "textarea", 
-		"title" => "{$lang['desc_kz']}" , 
+		"title" => $lang['desc_kz'], 
 		"class" => "form-control", 
-		"desc" => "{$lang['desc_name_kz']}", 
+		"desc" => $lang['desc_name_kz'], 
 		"required" => true
 	], [
 		"id" => "tb0301_min"
 		, "type" => "number"
-		, "title" => "{$lang['passing_score']}" 
+		, "title" => $lang['passing_score']
 		, "class" => "form-control"
-		, "desc" => "{$lang['passing_score']}" 
+		, "desc" => $lang['passing_score']
 		, "required" => true
 	]	
 ];

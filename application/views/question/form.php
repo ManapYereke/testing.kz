@@ -13,11 +13,11 @@ $fields=[
 	,[
 		"id"=>"tb0302_tb0301_id"
 		,"type"=>"dropdown"
-		,"title"=>"Тест"
+		,"title"=>"Субест"
 		,"sql"=>"SELECT * FROM tb0301_subtests ORDER BY tb0301_order"
 		,"class"=>"selectpicker w-100"
 		,"fieldId"=>"tb0301_id"
-		,"fieldText"=>"tb0301_name_ru"
+		,"fieldText"=>"tb0301_name_$l"
 		,"desc"=>""
 		,"required"=>true
 	]	
@@ -63,16 +63,16 @@ for($i=1;$i<=5;$i++){
 		,"type"=>"textarea"
 		,"title"=>"{$lang['answer'.$i.'_ru']}"
 		,"class"=>"form-control"
-		,"desc"=>"{$lang['questionAnswer_ru']}"
+		,"desc"=>"{$lang['question_answer_ru']}"
 		,"required"=>true
 	];
 
 	$fields[]=[
 		"id"=>"tb0302_answer".$i."_kz"
 		,"type"=>"textarea"
-		,"title"=>"{$lang['answer_kz']}"
+		,"title"=>"{$lang['answer'.$i.'_kz']}"
 		,"class"=>"form-control"
-		,"desc"=>"{$lang['questionAnswer_kz']}"
+		,"desc"=>"{$lang['question_answer_kz']}"
 		,"required"=>true
 	];
 }

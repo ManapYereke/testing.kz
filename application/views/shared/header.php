@@ -1,9 +1,3 @@
-<?
-		if (!$this->input->get('lang') || $this->input->get('lang') == 'kz')
-			$file = 'lang_kz.php';
-		else
-			$file = 'lang_ru.php';
-		include __DIR__ . '/' . $file; ?>
 <!doctype html>
 <html lang="en">
 
@@ -25,6 +19,43 @@
 	<link rel="stylesheet" type="text/css" href="/css/style.css" />
 	<script>
 		var ONLOAD = []
+		var DT_LANG_RU = {
+			"processing": "Подождите...",
+			"search": "Поиск:",
+			"lengthMenu": "Показать _MENU_ записей",
+			"info": "Записи с _START_ до _END_ из _TOTAL_ записей",
+			"infoEmpty": "Записи с 0 до 0 из 0 записей",
+			"infoFiltered": "(отфильтровано из _MAX_ записей)",
+			"infoPostFix": "",
+			"loadingRecords": "Загрузка записей...",
+			"zeroRecords": "Записи отсутствуют.",
+			"emptyTable": "В таблице отсутствуют данные",
+			"paginate": {
+				"first": "Первая",
+				"previous": "Предыдущая",
+				"next": "Следующая",
+				"last": "Последняя"
+			}
+		}
+
+		var DT_LANG_KZ = {
+			"processing": "Күте тұрыңыз...",
+			"search": "Іздеу:",
+			"lengthMenu": "_MENU_ жазба көрсету",
+			"info": "_TOTAL_ жазбаның ішінен _START_ бастап _END_ дейінгі жазбалар",
+			"infoEmpty": "0 жазбаның ішінен 0-ден 0-ге дейінгі жазба",
+			"infoFiltered": "(_MAX_ жазбадан алынды)",
+			"infoPostFix": "",
+			"loadingRecords": "Жазбаларды жүктеу...",
+			"zeroRecords": "Жазба жоқ",
+			"emptyTable": "Кестеде деректер жоқ",
+			"paginate": {
+				"first": "Бірінші",
+				"previous": "Алдыңғы",
+				"next": "Келесі",
+				"last": "Соңғы"
+			}
+		}
 	</script>
 
 </head>

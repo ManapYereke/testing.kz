@@ -11,7 +11,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		<div class="content-container">
 			<div class="page-header animated slideInDown">
 				<h1 class="text-muted discount-card-text">
-					<i class="fas fa-list"></i><?=$lang["questions"]?>
+					<i class="fas fa-list"></i><?= $lang["questions"] ?>
 				</h1>
 			</div>
 
@@ -19,11 +19,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th>Тест</th>
-						<th><?=$lang["sorting_index"]?></th>
-						<th><?=$lang["text_ru"]?></th>
-						<th>Т<?=$lang["text_kz"]?></th>
-						<th><?=$lang["date_time"]?></th>
+						<th>Субтест</th>
+						<th><?= $lang["sorting_index"] ?></th>
+						<th><?= $lang["text_ru"] ?></th>
+						<th><?= $lang["text_kz"] ?></th>
+						<th><?= $lang["date_time"] ?></th>
 						<th>Автор</th>
 					</tr>
 				</thead>
@@ -32,54 +32,55 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	</div>
 </div><!-- container-fluid -->
 
-		<script type="text/javascript">
-			ONLOAD.push(function() {
-				$('.table').dataTable({
-					'ajax': '<?= site_url($this->uri->segment(1) . "/lst") ?>'
-						// ,'scrollY': '481px'
-						// ,'scrollCollapse': true
-						,
-					'language': DT_LANG,
-					"order": [
-						[1, 'desc']
-					],
-					initComplete: function() {
-						$('.dataTables_length').prepend('<a class="btn btn-primary btn-sm" href="<?= site_url($this->uri->segment(1) . "/add") ?>"><i class="far fa-plus-square"></i> Добавить новый вопрос</a>&nbsp;&nbsp;&nbsp;');
-					},
-					"columns": [{
-						"data": "tb0302_id",
-						"className": "text-center"
-					}, {
-						"data": "tb0302_tb0301_id",
-						"className": "text-center"
-					}, {
-						"data": "tb0302_order",
-						"className": "text-center"
-					}, {
-						"data": "tb0302_desc_ru",
-						"className": "text-center"
-					}, {
-						"data": "tb0302_desc_kz",
-						"className": "text-center"
-					}, {
-						"data": "tb0302_created",
-						"className": "text-center"
-					}, {
-						"data": "tb0302_createdby",
-						"className": "text-center"
-					}],
-					"columnDefs": [{
-						"targets": [0, 1, 2, 3, 4, 5, 6],
-						"render": function(data, type, row) {
-							if (!data) return "";
-							return '<a href="<?= site_url($this->uri->segment(1) . "/edit") ?>/' + row.tb0302_id + '">' + data + '</a>';
-						}
-					}]
-				}).on('draw.dt', function() {
-					// if($('.dataTables_length .btn').length) return;
-					// $('.dataTables_length').prepend('<a class="btn btn-primary btn-sm" href="<?= site_url($this->uri->segment(1) . "/add") ?>">Add a new record</a>&nbsp;&nbsp;&nbsp;')
-				});
-			});
-		</script>
+<script type="text/javascript">
+	ONLOAD.push(function() {
+		const lang = new URLSearchParams(window.location.search).get("lang");
+		$('.table').dataTable({
+			'ajax': '<?= site_url($this->uri->segment(1) . "/lst") ?>'
+				// ,'scrollY': '481px'
+				// ,'scrollCollapse': true
+				,
+			'language': lang === "ru" ? DT_LANG_RU : DT_LANG_KZ,
+			"order": [
+				[1, 'desc']
+			],
+			initComplete: function() {
+				$('.dataTables_length').prepend('<a class="btn btn-primary btn-sm" href="<?= site_url($this->uri->segment(1) . "/add") ?>"><i class="far fa-plus-square"></i><?=$lang["add_question"]?></a>&nbsp;&nbsp;&nbsp;');
+			},
+			"columns": [{
+				"data": "tb0302_id",
+				"className": "text-center"
+			}, {
+				"data": "tb0302_tb0301_id",
+				"className": "text-center"
+			}, {
+				"data": "tb0302_order",
+				"className": "text-center"
+			}, {
+				"data": "tb0302_desc_ru",
+				"className": "text-center"
+			}, {
+				"data": "tb0302_desc_kz",
+				"className": "text-center"
+			}, {
+				"data": "tb0302_created",
+				"className": "text-center"
+			}, {
+				"data": "tb0302_createdby",
+				"className": "text-center"
+			}],
+			"columnDefs": [{
+				"targets": [0, 1, 2, 3, 4, 5, 6],
+				"render": function(data, type, row) {
+					if (!data) return "";
+					return '<a href="<?= site_url($this->uri->segment(1) . "/edit") ?>/' + row.tb0302_id + '">' + data + '</a>';
+				}
+			}]
+		}).on('draw.dt', function() {
+			// if($('.dataTables_length .btn').length) return;
+			// $('.dataTables_length').prepend('<a class="btn btn-primary btn-sm" href="<?= site_url($this->uri->segment(1) . "/add") ?>">Add a new record</a>&nbsp;&nbsp;&nbsp;')
+		});
+	});
+</script>
 
-		<? $this->load->view("/shared/footer", $this->_ci_cached_vars) ?>
+<? $this->load->view("/shared/footer", $this->_ci_cached_vars) ?>

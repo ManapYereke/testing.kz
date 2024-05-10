@@ -5,18 +5,20 @@ class Subtest extends CI_Controller
 {
 	var $data = [];
 	var $CI;
+	private $l;
 
 	function __construct()
 	{
 		parent::__construct();
 		$this->data["tb0101"] = $this->session->userdata("tb0101");
-		$l = $this->input->post("lang");
-		if (!$l) {
-			$l = $this->input->get("lang") ? $this->input->get("lang") : "kz";
+		$this->l = $this->input->post("lang");
+		if (!$this->l) {
+			$this->l = $this->input->get("lang") ? $this->input->get("lang") : "kz";
 		}
-		$path = APPPATH . 'language' . DIRECTORY_SEPARATOR . 'lang_' . $l . ".php";
+		$path = APPPATH . 'language' . DIRECTORY_SEPARATOR . 'lang_' . $this->l . ".php";
 		include $path;
 		$this->data["lang"] = $lang;
+		$this->data["l"] = $this->l;
 	}
 
 	public function index()
