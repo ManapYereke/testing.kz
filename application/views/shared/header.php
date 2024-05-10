@@ -63,7 +63,7 @@
 <body style="padding-top: 70px; padding-bottom: 20px">
 	<nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
 		<a class="navbar-brand" href="/">
-			<img src="https://gov4c.kz/public/img/logo.png" alt="logo.png" height="40" style="margin-top: -15px;">
+			<img src="/img/logo.png" alt="logo.png" height="40">
 			<span class="navbar-text" style="font-size: 12px; padding: 0px"><?= $lang['nao'] ?></span>
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
