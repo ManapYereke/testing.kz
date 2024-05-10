@@ -34,25 +34,25 @@ $fields=[
 		"id"=>"tb0302_answer"
 		,"type"=>"text"
 		,"mask"=>"0"
-		,"title"=>"Номер правильного ответа (1-5)"
+		,"title"=>"{$lang['sequence_number']}"
 		,"class"=>"form-control"
-		,"desc"=>"Порядковый номер правильного ответа"
+		,"desc"=>"{$lang['sequence_number']}"
 		,"required"=>true
 	]	
 	,[
 		"id"=>"tb0302_desc_ru"
 		,"type"=>"textarea"
-		,"title"=>"Текст на русском"
+		,"title"=>"{$lang['text_ru']}"
 		,"class"=>"form-control"
-		,"desc"=>"Название субтеста на русском"
+		,"desc"=>"{$lang['desc_name_ru']}"
 		,"required"=>true
 	]
 	,[
 		"id"=>"tb0302_desc_kz"
 		,"type"=>"textarea"
-		,"title"=>"Текст на казахском"
+		,"title"=>"{$lang['text_kz']}" 
 		,"class"=>"form-control"
-		,"desc"=>"Название субтеста на русском"
+		,"desc"=>"{$lang['desc_name_kz']}"  
 		,"required"=>true
 	]
 ];
@@ -61,18 +61,18 @@ for($i=1;$i<=5;$i++){
 	$fields[]=[
 		"id"=>"tb0302_answer".$i."_ru"
 		,"type"=>"textarea"
-		,"title"=>"Ответ ".$i." на русском"
+		,"title"=>"{$lang['answer'.$i.'_ru']}"
 		,"class"=>"form-control"
-		,"desc"=>"Ответ на вопрос на русском"
+		,"desc"=>"{$lang['questionAnswer_ru']}"
 		,"required"=>true
 	];
 
 	$fields[]=[
 		"id"=>"tb0302_answer".$i."_kz"
 		,"type"=>"textarea"
-		,"title"=>"Ответ ".$i." на казахском"
+		,"title"=>"{$lang['answer_kz']}"
 		,"class"=>"form-control"
-		,"desc"=>"Ответ на вопрос на русском"
+		,"desc"=>"{$lang['questionAnswer_kz']}"
 		,"required"=>true
 	];
 }

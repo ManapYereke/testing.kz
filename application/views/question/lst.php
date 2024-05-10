@@ -11,7 +11,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		<div class="content-container">
 			<div class="page-header animated slideInDown">
 				<h1 class="text-muted discount-card-text">
-					<i class="fas fa-list"></i> Вопросы
+					<i class="fas fa-list"></i><?=$lang["questions"]?>
 				</h1>
 			</div>
 
@@ -20,10 +20,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 					<tr>
 						<th>ID</th>
 						<th>Тест</th>
-						<th>Индекс сортировки</th>
-						<th>Текст на русском</th>
-						<th>Текст на казахском</th>
-						<th>Дата/время</th>
+						<th><?=$lang["sorting_index"]?></th>
+						<th><?=$lang["text_ru"]?></th>
+						<th>Т<?=$lang["text_kz"]?></th>
+						<th><?=$lang["date_time"]?></th>
 						<th>Автор</th>
 					</tr>
 				</thead>

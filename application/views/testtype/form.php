@@ -13,17 +13,17 @@ $fields=[
 	,[
 		"id"=>"tb0203_name_ru"
 		,"type"=>"text"
-		,"title"=>"Название вида тестирования на русском"
+		,"title"=>"{$lang['sname_types_ru']}"
 		,"class"=>"form-control"
-		,"desc"=> "Название вида тестирования на русском"
+		,"desc"=> "{$lang['sname_types_ru']}"
 		,"required"=>true
 	]
 	,[
 		"id"=>"tb0203_name_kz"
 		,"type"=>"text"
-		,"title"=> "Название вида тестирования на казахском"
+		,"title"=> "{$lang['sname_types_kz']}"
 		,"class"=>"form-control"
-		,"desc"=> "Название вида тестирования на казахском"
+		,"desc"=> "{$lang['sname_types_kz']}"
 		,"required"=>true
 	]
 ];

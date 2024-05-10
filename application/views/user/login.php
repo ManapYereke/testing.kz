@@ -10,11 +10,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <!-- <a class="pr-2" href="<?= site_url("user/registration") ?>">Регистрация</a>
 		<a class="pr-2" href="<?= site_url("user/recovery") ?>">Забыли пароль?</a> -->
             <br><br>
-            <input type="text" class="form-control mr-sm-2" data-mask="000 000 000 000" id="tb0101_idn" name="tb0101_idn" placeholder="ИИН">
+            <input type="text" class="form-control mr-sm-2" data-mask="000 000 000 000" id="tb0101_idn" name="tb0101_idn" placeholder=<?=$lang["idn"]?>>
             <br>
             <input type="password" class="form-control mr-sm-2" id="tb0101_passwd" name="tb0101_passwd" placeholder="Пароль">
             <br>
-            <button class="btn btn-success form-control">ВОЙТИ</button>
+            <button class="btn btn-success form-control"><?=$lang["to_come_in"]?></button>
         </form>
     </div>
     <div class="col-4"></div>

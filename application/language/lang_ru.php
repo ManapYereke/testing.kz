@@ -76,6 +76,69 @@ $lang=[
     "edit_testtype" => "Изменить вид теста",
     //userController
     "add_user" => "Добавить пользователя",
-    "edit_user" => "Редактировать данные пользователя"
-]
+    "edit_user" => "Редактировать данные пользователя",
+    //adminViews general
+    "name_kz" => "Название на казахском",
+    "name_ru" => "Название на русском",
+    "desc_kz" => "Описание на казахском языке",
+    "desc_ru" => "Описание на русском языке",
+    "created_time" => "Время создания",
+    "created_by" => "Создан пользавателем",
+
+    //views/tests/
+    "tests" => "Тесты",
+    "variant" => "Вариант",
+    "test_type" => "Вид теста",
+    "subtests" => "Субтесты",
+
+    //views/question/
+    "sequence_number"=>"Порядковый номер правильного ответа",
+    "text_ru"=>"Текст на русском",
+    "desc_name_ru"=>"Название субтеста на русском",
+    "text_kz"=>"Текст на казахском",
+    "desc_name_kz"=>"Название субтеста на казахском",
+    "questionAnswer_ru"=>"Ответ на вопрос на русском",
+    "questionAnswer_kz"=>"Ответ на вопрос на русском",
+
+    //views/ist/
+    "questions"=>"Вопросы",
+	"sorting_index"=>"Индекс сортировки",
+	"date_time"=>"Дата/время",
+
+    //views/specialization/
+    "special_ru"=>"Название специальности на русском",
+    "special_kz"=> "Название специальности на казахском",
+
+    //views/specialization_ru_kz/
+    "special"=>"Специальности",
+
+    //views/subtest1/
+    "sorting_order"=>"Порядок сортировки (0-254)",
+    "order_index"=>"Индекс сортировки определяющий порядок",
+    "passing_score" => "Проходной балл",
+
+    //views/testtype1/
+    "name_types_ru"=>"Название вида тестирования на русском",
+    "name_types_kz"=> "Название вида тестирования на казахском",
+
+    //views/testtype2/
+    "testtypest"=>"Виды тестирования",
+
+    //views/users/
+    "to_come_in"=>"ВОЙТИ",
+
+    //views/users2/
+    "users"=>"Пользователи",
+
+    //views/password/
+    "change_password"=>"Смена пароля",
+    "save_password"=>"Пароль успешно установлен.",
+    "install"=>"Установить",
+
+];
+
+for ($i = 1; $i <= 5; $i++) {
+    $lang["answer".$i."_ru"] = "Ответ " . $i . " на русском";
+    $lang["answer" . $i . "_kz"] = "Ответ " . $i . " на казахском";
+}
 ?>

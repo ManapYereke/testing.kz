@@ -90,5 +90,51 @@ $lang = [
     "variant" => "Нұсқа",
     "test_type" => "Тест түрі",
     "subtests" => "Субтесттер",
-]
+
+    //views/question/
+    "sequence_number"=>"Дұрыс жауаптың реттік нөмірі",
+    "text_ru"=>"Орысша текст",
+    "desc_name_ru"=>"Субтестің орысша атауы",
+    "text_kz"=>"Қазақша текст",
+    "desc_name_kz"=>"Субтестің қазақша атауы",
+    "question_answer_ru"=>"Сұрақтың орысша жауабы",
+    "question_answer_kz"=>"Сұрақтың қазақша жауабы",
+
+    //views/ist/
+    "questions"=>"Сұрақтар",
+    "sorting_index"=>"Сұрыптау индексі",
+    "date_time"=>"Күні/уақыты",
+
+    //views/specialization/
+    "special_ru"=>"Мамандықтын қазақша атауы",
+    "special_kz"=> "Мамандықтын орысша атауы",
+
+    //views/specialization_ru_kz/
+    "special"=>"Мамандықтар",
+
+    //views/subtest1/
+    "sorting_order"=>"Сұрыптау реті(0-254)",
+    "order_index"=>"Ретті анықтайтын сұрыптау индексі" ,
+    "passing_score" => "Өту балы",
+
+    //views/testtype1/
+    "name_types_ru"=>"Тестілеу түрінің орысша атауы",
+    "name_types_kz"=> "Тестілеу түрінің қазақша атауы",
+
+    //views/testtype2/
+    "testtypest"=>"Тестілеу түрлері",
+
+    //views/users/
+    "to_come_in"=>"КІРУ",
+
+    //views/users2/
+    "users"=>"Пайдаланушылар",
+
+];
+
+for ($i = 1; $i <= 5; $i++) {
+    $lang["answer" . $i . "_ru"] = "Жауап " . $i . " орысша";
+    $lang["answer" . $i . "_kz"] = "Жауап " . $i . " қазакша"
+    ;
+}
 ?>

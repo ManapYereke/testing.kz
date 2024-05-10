@@ -13,17 +13,17 @@ $fields=[
 	,[
 		"id"=>"tb0202_name_ru"
 		,"type"=>"text"
-		,"title"=>"Название специальности на русском"
+		,"title"=>"{$lang['special_ru']}"		
 		,"class"=>"form-control"
-		,"desc"=> "Название специальности на русском"
+		,"desc"=>"{$lang['special_ru']}"	
 		,"required"=>true
 	]
 	,[
 		"id"=>"tb0202_name_kz"
 		,"type"=>"text"
-		,"title"=> "Название специальности на казахском"
+		,"title"=>"{$lang['special_kz']}"	
 		,"class"=>"form-control"
-		,"desc"=> "Название специальности на казахском"
+		,"desc"=>"{$lang['special_kz']}"	
 		,"required"=>true
 	]
 ];

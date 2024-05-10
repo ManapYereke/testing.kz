@@ -14,47 +14,47 @@ $fields=[
 		"id"=>"tb0301_order"
 		,"type"=>"text"
 		,"mask"=>"00000"
-		,"title"=>"Порядок сортировки (0-254)"
+		,"title"=>"{$lang['sorting_order']}"
 		,"class"=>"form-control"
-		,"desc"=>"Индекс сортировки определяющий порядок"
+		,"desc"=>"{$lang['order_index']}"
 		,"required"=>true
 	]		
 	,[
 		"id"=>"tb0301_name_ru"
 		,"type"=>"text"
-		,"title"=>"Название на русском"
+		,"title"=>"{$lang['name_ru']}"		
 		,"class"=>"form-control"
-		,"desc"=>"Название субтеста на русском"
+		,"desc"=>"{$lang[' desc_name_ru']}"	
 		,"required"=>true
 	]
 	,[
 		"id"=>"tb0301_name_kz"
 		,"type"=>"text"
-		,"title"=>"Название на казахском"
+		,"title"=>"{$lang['name_kz']}"
 		,"class"=>"form-control"
-		,"desc"=>"Название субтеста на русском"
+		,"desc"=>"{$lang[' desc_name_kz']}"	
 		,"required"=>true
 	]
 	,[
 		"id"=>"tb0301_desc_ru"
 		,"type"=>"textarea"
-		,"title"=>"Описание на русском"
+		,"title"=>"{$lang['desc_ru']}" 
 		,"class"=>"form-control"
-		,"desc"=>"Название субтеста на русском"
+		,"desc"=>"{$lang['desc_name_ru']}"
 		,"required"=>true
 	], [
 		"id" => "tb0301_desc_kz", 
 		"type" => "textarea", 
-		"title" => "Описание на казахском", 
+		"title" => "{$lang['desc_kz']}" , 
 		"class" => "form-control", 
-		"desc" => "Название субтеста на русском", 
+		"desc" => "{$lang['desc_name_kz']}", 
 		"required" => true
 	], [
 		"id" => "tb0301_min"
 		, "type" => "number"
-		, "title" => "Проходной балл"
+		, "title" => "{$lang['passing_score']}" 
 		, "class" => "form-control"
-		, "desc" => "Проходной балл"
+		, "desc" => "{$lang['passing_score']}" 
 		, "required" => true
 	]	
 ];
