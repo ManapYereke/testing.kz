@@ -11,15 +11,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		<?
 		$fields = [
 			[
-				"id" => "tb0101_idn", "type" => "string", "title" => $lang["idn"], "class" => "form-control", "mask" => "000 000 000 000", "desc" => "ИИН (вместо ФИО)", "required" => true
+				"id" => "tb0101_idn", "type" => "string", "title" => $lang["idn"], "class" => "form-control", "mask" => "000 000 000 000", "desc" => "ИИН (вместо ФИО)", "required" => true, "placeholder" => "*** *** *** ***"
 			], [
-				"id" => "tb0101_phone1", "type" => "string", "title" => "Телефон", "class" => "form-control", "mask" => "+7 (000) 000-0000", "desc" => "Номер сотового телефона", "required" => true
+				"id" => "tb0101_phone1", "type" => "string", "title" => "Телефон", "class" => "form-control", "mask" => "+7 (000) 000-0000", "desc" => "Номер сотового телефона", "required" =>
+				true, "placeholder" => "+7(___)___ __ __"
 			], [
-				"id" => "tb0101_name1", "type" => "string", "title" => $lang["surname"], "class" => "form-control", "required" => true
+				"id" => "tb0101_name1", "type" => "string", "title" => $lang["surname"], "class" => "form-control", "required" =>
+				true, "placeholder" => "Иванов"
 			], [
-				"id" => "tb0101_name2", "type" => "string", "title" => $lang["name"], "class" => "form-control", "required" => true
+				"id" => "tb0101_name2", "type" => "string", "title" => $lang["name"], "class" => "form-control", "required" =>
+				true, "placeholder" => "Иван"
 			], [
-				"id" => "tb0101_name3", "type" => "string", "title" => $lang["fname"], "class" => "form-control"
+				"id" => "tb0101_name3", "type" => "string", "title" => $lang["fname"], "class" =>
+				"form-control", "placeholder" => "Иванович"
 			], [
 				"id" => "tb0203_id", "type" => "dropdown", "title" => $lang["test_type"], "sql" => "SELECT * FROM tb0203_testtypes", "class" => "selectpicker w-100", "fieldId" => "tb0203_id", "fieldText" => "tb0203_name_" . $l, "required" => true
 			], [
