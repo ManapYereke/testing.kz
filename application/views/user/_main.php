@@ -4,25 +4,25 @@
 		<div class="row">
 			<div class="col">
 				<div class="form-group required">
-					<label for="tb0101_idn">ИИН</label>
+					<label for="tb0101_idn"><?=$lang["idn"]?></label>
 					<input type="text" class="form-control" data-mask="000 000 000 000" id="tb0101_idn" name="tb0101_idn" value="<?=@$tb0101["tb0101_idn"]?>" required>
 				</div>
 			</div>
 			<div class="col">
 				<div class="form-group required">
-					<label for="tb0101_name1">Фамилия</label>
+					<label for="tb0101_name1"><?=$lang["surname"]?></label>
 					<input type="text" class="form-control" id="tb0101_name1" name="tb0101_name1" value="<?=@$tb0101["tb0101_name1"]?>" required>
 				</div>
 			</div>
 			<div class="col">
 				<div class="form-group required">
-					<label for="tb0101_name2">Имя</label>
+					<label for="tb0101_name2"><?=$lang["name"]?></label>
 					<input type="text" class="form-control" id="tb0101_name2" name="tb0101_name2" value="<?=@$tb0101["tb0101_name2"]?>" required>
 				</div>
 			</div>
 			<div class="col">
 				<div class="form-group">
-					<label for="tb0101_name3">Отчество</label>
+					<label for="tb0101_name3"><?=$lang["fname"]?></label>
 					<input type="text" class="form-control" id="tb0101_name3" name="tb0101_name3" value="<?=@$tb0101["tb0101_name3"]?>">
 				</div>
 			</div>

@@ -4,6 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Main extends CI_Controller
 {
 	var $data = [];
+	private $l;
 
 	function __construct()
 	{
@@ -23,7 +24,7 @@ class Main extends CI_Controller
 	public function index()
 	{
 		// die("SYSTEM OFF");
-		return redirect("main/home");
+		return redirect("main/welcome");
 	}
 
 	public function home()
@@ -46,6 +47,10 @@ class Main extends CI_Controller
 			}
 			die(json_encode($options));
 		}
+	}
+
+	public function welcome(){
+		$this->load->view($this->uri->segment(1) . "/" . $this->uri->segment(2), $this->data);
 	}
 
 	public function report()

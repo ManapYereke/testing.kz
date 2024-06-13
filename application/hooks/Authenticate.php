@@ -76,12 +76,13 @@ class Authenticate {
 		if(@$tb0101) return;
 		if(strpos(@$_SERVER["PHP_SELF"],"/main/report") !== false) return;
 		if(strpos(@$_SERVER["PHP_SELF"],"/main/home") !== false) return;
+		if(strpos(@$_SERVER["PHP_SELF"],"/main/welcome") !== false) return;
 		if(strpos(@$_SERVER["PHP_SELF"],"/user/login") !== false) return;
 		if(strpos(@$_SERVER["PHP_SELF"],"/user/passwd") !== false) return;
 		if(strpos(@$_SERVER["PHP_SELF"],"/user/registration") !== false) return;
 		if(strpos(@$_SERVER["PHP_SELF"],"/test/") !== false) return;
 
-		redirect('main/home');
+		redirect('main/welcome');
 	}
 }
 ?>

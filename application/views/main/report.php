@@ -1,7 +1,7 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 ?>
-<?$this->load->view("shared/header", $this->_ci_cached_vars);?>
+<? $this->load->view("shared/header", $this->_ci_cached_vars); ?>
 
 
 <h1 class="display-4">Результаты</h1>
@@ -25,40 +25,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</tr>
 	</thead>
 	<tbody>
-<?
-foreach($result as $r){
-	$testStart = new DateTime($r->testStart);
-	$testDue = $testStart->diff(new DateTime($r->testFinish));
-	
-	$minutes = $testDue->days * 24 * 60;
-	$minutes += $testDue->h * 60;
-	$minutes += $testDue->i;
-	$minutes=!$r->testFinish?"":$minutes;
+		<?
+		foreach ($result as $r) {
+			$testStart = new DateTime($r->testStart);
+			$testDue = $testStart->diff(new DateTime($r->testFinish));
 
-?>
-		<tr>
-			<!-- <td><?=$r->tb0101_id?></td> -->
-			<td><?=str_pad($r->tb0101_idn,12,"0",STR_PAD_LEFT)?></td>
-			<td><?=$r->tb0101_name1?></td>
-			<td><?=$r->tb0101_name2?></td>
-			<td><?=$r->tb0101_name3?></td>
-			<td><?=$r->testStart?></td>
-			<td><?=$r->testFinish?></td>
-			<td><?=$minutes?></td>
-			<td><?=$r->score2?></td>
-			<td><?=$r->score3?></td>
-			<td><?=$r->score4?></td>
-			<td><?=$r->score2+$r->score3+$r->score4?></td>
-		</tr>
-<?}?>
+			$minutes = $testDue->days * 24 * 60;
+			$minutes += $testDue->h * 60;
+			$minutes += $testDue->i;
+			$minutes = !$r->testFinish ? "" : $minutes;
+
+		?>
+			<tr>
+				<!-- <td><?= $r->tb0101_id ?></td> -->
+				<td><?= str_pad($r->tb0101_idn, 12, "0", STR_PAD_LEFT) ?></td>
+				<td><?= $r->tb0101_name1 ?></td>
+				<td><?= $r->tb0101_name2 ?></td>
+				<td><?= $r->tb0101_name3 ?></td>
+				<td><?= $r->testStart ?></td>
+				<td><?= $r->testFinish ?></td>
+				<td><?= $minutes ?></td>
+				<td><?= $r->score2 ?></td>
+				<td><?= $r->score3 ?></td>
+				<td><?= $r->score4 ?></td>
+				<td><?= $r->score2 + $r->score3 + $r->score4 ?></td>
+			</tr>
+		<? } ?>
 	</tbody>
 </table>
 
 <script type="text/javascript">
-	ONLOAD.push(function(){
-		$('.table').dataTable( {
-			'language': DT_LANG
+	ONLOAD.push(function() {
+		const lang = new URLSearchParams(window.location.search).get("lang");
+		$('.table').dataTable({
+			'language': lang === "ru" ? DT_LANG_RU : DT_LANG_KZ,
 		});
 	});
 </script>
-<?$this->load->view("shared/footer", $this->_ci_cached_vars);?>
+<? $this->load->view("shared/footer", $this->_ci_cached_vars); ?>

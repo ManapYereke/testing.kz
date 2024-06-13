@@ -5,18 +5,20 @@ class Question extends CI_Controller
 {
 	var $data = [];
 	var $CI;
+	private $l;
 
 	function __construct()
 	{
 		parent::__construct();
 		$this->data["tb0101"] = $this->session->userdata("tb0101");
-		$l = $this->input->post("lang");
-		if (!$l) {
-			$l = $this->input->get("lang") ? $this->input->get("lang") : "kz";
+		$this->l = $this->input->post("lang");
+		if (!$this->l) {
+			$this->l = $this->input->get("lang") ? $this->input->get("lang") : "kz";
 		}
-		$path = APPPATH . 'language' . DIRECTORY_SEPARATOR . 'lang_' . $l . ".php";
+		$path = APPPATH . 'language' . DIRECTORY_SEPARATOR . 'lang_' . $this->l . ".php";
 		include $path;
 		$this->data["lang"] = $lang;
+		$this->data["l"] = $this->l;
 	}
 
 	public function index()
@@ -72,7 +74,7 @@ class Question extends CI_Controller
 					"tb0302_id" => [
 						"iskey" => 1, "autoinc" => 1, "type" => "number", "template" => "%tb0302_id%"
 					], "tb0302_tb0301_id" => [
-						"iskey" => 0, "type" => "number", "template" => "%tb0301_subtests.tb0301_name_ru%"
+						"iskey" => 0, "type" => "number", "template" => "%tb0301_subtests.tb0301_name_$this->l%"
 					], "tb0302_order" => [
 						"iskey" => 0, "type" => "number", "template" => "%tb0302_order%"
 					], "tb0302_desc_ru" => [

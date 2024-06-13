@@ -4,12 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?$this->load->view("shared/header", $this->_ci_cached_vars);?>
 
 <div class="container pt-3">
-	<h1>Смена пароля</h1>
+	<h1><?=$lang["change_password"]?></h1>
 	
 	<div class="row">
 		<div class="col-4 offset-md-4">
 			<?if(@$passOk){?>
-				<div class="alert alert-success">Пароль успешно установлен.</div>
+				<div class="alert alert-success"><?=$lang["save_password"]?></div>
 			<?}?>
 			<?if(@$ex){?>
 				<div class="alert alert-danger"><?=$ex?></div>
