@@ -19,16 +19,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<thead>
 					<tr>
 						<th>ID</th>
-						<th></i><?= $lang["sorting_index"] ?></th>
-						<th></i><?= $lang["name_ru"] ?></th>
-						<th></i><?= $lang["name_kz"] ?></th>
-						<th></i><?= $lang["passing_score"] ?></th>
-						<th></i><?= $lang["date_time"] ?></th>
+						<th><?= $lang["sorting_index"] ?></th>
+						<th><?= $lang["name_ru"] ?></th>
+						<th><?= $lang["name_kz"] ?></th>
+						<th><?= $lang["passing_score"] ?></th>
+						<th><?= $lang["timelimit"] ?></th>
+						<th><?= $lang["date_time"] ?></th>
 						<th>Автор</th>
 					</tr>
 				</thead>
 				<tfoot>
 					<tr>
+						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>
@@ -74,6 +76,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				"data": "tb0301_min",
 				"className": "text-center"
 			}, {
+				"data": "tb0301_timelimit",
+				"className": "text-center"
+			}, {
 				"data": "tb0301_created",
 				"className": "text-center"
 			}, {
@@ -81,7 +86,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				"className": "text-center"
 			}],
 			"columnDefs": [{
-				"targets": [0, 1, 2, 3, 4, 6],
+				"targets": [0, 1, 2, 3, 4, 6, 7],
 				"render": function(data, type, row) {
 					if (!data) return "";
 					return '<a href="<?= site_url($this->uri->segment(1) . "/edit") ?>/' + row.tb0301_id + '">' + data + '</a>';

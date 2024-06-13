@@ -30,6 +30,7 @@ $lang = [
     "finish" => "Аяқтау",
     "youSure" => "Сіз сенімдісіз бе?",
     "sureSubmit" => "Тестті аяқтап, жауаптарды жіберуге сенімдісіз бе?",
+    "sureNextStep" => "Субтестті аяқтап, келесі қадамға өтуге сенімдісіз бе?",
     "sure" => "Иә, сенімдімін!",
     "cancel" => "Болдырмау!",
     "canceled" => "Болдырылмады",
@@ -96,40 +97,41 @@ $lang = [
     "subtests" => "Субтесттер",
 
     //question/
-    "sequence_number"=>"Дұрыс жауаптың реттік нөмірі",
-    "text_ru"=>"Орысша текст",
-    "desc_name_ru"=>"Субтестің орысша атауы",
-    "text_kz"=>"Қазақша текст",
-    "desc_name_kz"=>"Субтестің қазақша атауы",
-    "question_answer_ru"=>"Сұрақтың орысша жауабы",
-    "question_answer_kz"=>"Сұрақтың қазақша жауабы",
+    "sequence_number" => "Дұрыс жауаптың реттік нөмірі",
+    "text_ru" => "Орысша текст",
+    "desc_name_ru" => "Субтестің орысша атауы",
+    "text_kz" => "Қазақша текст",
+    "desc_name_kz" => "Субтестің қазақша атауы",
+    "question_answer_ru" => "Сұрақтың орысша жауабы",
+    "question_answer_kz" => "Сұрақтың қазақша жауабы",
 
     //question/lst/
-    "questions"=>"Сұрақтар",
-    "sorting_index"=>"Сұрыптау индексі",
-    "date_time"=>"Күні/уақыты",
+    "questions" => "Сұрақтар",
+    "sorting_index" => "Сұрыптау индексі",
+    "date_time" => "Күні/уақыты",
 
     //views/specialization/
-    "special_ru"=>"Мамандықтың қазақша атауы",
-    "special_kz"=> "Мамандықтың орысша атауы",
+    "special_ru" => "Мамандықтың қазақша атауы",
+    "special_kz" => "Мамандықтың орысша атауы",
 
     //views/specialization_ru_kz/
-    "specialities"=>"Мамандықтар",
+    "specialities" => "Мамандықтар",
 
     //views/subtest1/
-    "sorting_order"=>"Сұрыптау реті(0-254)",
-    "order_index"=>"Ретті анықтайтын сұрыптау индексі" ,
+    "sorting_order" => "Сұрыптау реті(0-254)",
+    "order_index" => "Ретті анықтайтын сұрыптау индексі",
     "passing_score" => "Өту балы",
+    "timelimit" => "Берілетін уақыт(мин)",
 
     //views/testtype1/
-    "name_types_ru"=>"Тестілеу түрінің орысша атауы",
-    "name_types_kz"=> "Тестілеу түрінің қазақша атауы",
+    "name_types_ru" => "Тестілеу түрінің орысша атауы",
+    "name_types_kz" => "Тестілеу түрінің қазақша атауы",
 
     //views/testtype2/
-    "testtypes"=>"Тестілеу түрлері",
+    "testtypes" => "Тестілеу түрлері",
 
     //views/users/
-    "to_come_in"=>"КІРУ",
+    "to_come_in" => "КІРУ",
 
     //user/lst
     "users" => "Пайдаланушылар",
@@ -138,7 +140,5 @@ $lang = [
 
 for ($i = 1; $i <= 5; $i++) {
     $lang["answer" . $i . "_ru"] = "Жауап " . $i . " орысша";
-    $lang["answer" . $i . "_kz"] = "Жауап " . $i . " қазақша"
-    ;
+    $lang["answer" . $i . "_kz"] = "Жауап " . $i . " қазақша";
 }
-?>

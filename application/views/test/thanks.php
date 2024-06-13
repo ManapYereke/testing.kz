@@ -1,7 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 ?>
-<? $this->load->view("shared/header", $this->_ci_cached_vars); ?>
+<? $this->load->view("shared/header", $this->_ci_cached_vars); 
+$passed = true;
+?>
 
 <div class="container">
 	<div class="alert alert-success text-center"><?= $lang["testing_finished"] ?></div>
@@ -19,6 +21,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 						<th><?= $lang["correctAnswers"] ?></th>
 						<th><?= $lang["incorrectAnswers"] ?></th>
 						<th><?= $lang["question_count"] ?></th>
+						<th><?= $lang["result"] ?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -28,12 +31,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 					foreach ($result as $r) {
 						$sumv += $r->v;
 						$sum += $r->c;
+						if ($r->v < $r->tb0301_min)
+							$passed = false;
 					?>
 						<tr>
 							<td><?= $l == "ru" ? $r->tb0301_name_ru : $r->tb0301_name_kz ?></td>
 							<td><?= $r->v ?></td>
 							<td><?= $r->c - $r->v ?></td>
 							<td><?= $r->c ?></td>
+							<td><?= $r->v >= $r->tb0301_min ? $lang["passed"] : $lang["notPassed"]?></td>
 						</tr>
 					<? } ?>
 				</tbody>
@@ -43,6 +49,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 						<th><?= $sumv ?></th>
 						<th><?= $sum - $sumv ?></th>
 						<th><?= $sum ?></th>
+						<th><?= $passed ? $lang["passed"] : $lang["notPassed"]?></th>
 					</tr>
 				</tfoot>
 			</table>

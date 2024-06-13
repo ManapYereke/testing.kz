@@ -237,7 +237,9 @@ SELECT
     ,tb0301_name_kz
 	,tb0301_min
     ,SUM(IF(tb0303_value=tb0302_answer,1,0)) v
-	,COUNT(tb0303_value) c
+	,(SELECT COUNT(tb0302_id) 
+     FROM tb0302_questions 
+     WHERE tb0302_tb0301_id = tb0301_id) AS c
 FROM tb0101_users
 INNER JOIN tb0303_answers ON tb0303_tb0101_id=tb0101_id
 INNER JOIN tb0302_questions ON tb0302_id=tb0303_tb0302_id

@@ -24,7 +24,7 @@ $tb0101_id = $this->uri->segment(3);
             $step++;
             $i = 0;
         ?>
-            <div id="tb0301-<?= $r1->tb0301_id ?>" class="card mt-2 step<?= $step == 1 ? "" : " d-none" ?>" <?//tb0301_timelimit="<?= $r1->tb0301_timelimit ?>>
+            <div id="tb0301-<?= $r1->tb0301_id ?>" class="card mt-2 step<?= $step == 1 ? "" : " d-none" ?>" tb0301_timelimit="<?= $r1->tb0301_timelimit ?>">
                 <h5 class="card-header"><?= $this->utils->t([$r1->tb0301_name_ru, $r1->tb0301_name_kz]) ?> <span class="badge badge-secondary">00:00</span></h5>
                 <div class="card-body">
                     <div class="intro">
@@ -131,7 +131,7 @@ $tb0101_id = $this->uri->segment(3);
         var step = parseInt(card.attr("step"));
 
         // Set the date we're counting down to
-        /*var tb0301_timelimit = card.attr("tb0301_timelimit") + ":00";
+        var tb0301_timelimit = card.attr("tb0301_timelimit") + ":00";
         card.find(".card-header").find(".badge").text(tb0301_timelimit);
 
         // Update the count down every 1 second
@@ -161,7 +161,7 @@ $tb0101_id = $this->uri->segment(3);
                     stepEnd();
                 } else finish(1);
             }
-        }, 1000);*/
+        }, 1000);
     }
 
     function stepEnd() {
@@ -170,14 +170,14 @@ $tb0101_id = $this->uri->segment(3);
         $('.tab-pane.fadeshow.active').eq(0).removeClass('active');
 
         Swal.fire({
-            title: "Вы уверены?",
-            text: "Вы уверены, что хотите завершить текущее задание и перейти дальше?",
+            title: '<?=$lang["youSure"]?>',
+            text: '<?=$lang["sureNextStep"]?>',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: "Да, уверен (-а)!",
-            cancelButtonText: "Отменить!"
+            confirmButtonText: '<?=$lang["sure"]?>',
+            cancelButtonText: '<?=$lang["cancel"]?>'
         }).then((result) => {
             if (result.value) {
                 var steps = $('.card.mt-2.step');
@@ -191,8 +191,8 @@ $tb0101_id = $this->uri->segment(3);
             } else {
                 Swal.fire({
                     icon: 'error',
-                    title: "Отменено",
-                    text: "Завершение отменено."
+                    title: '<?=$lang["canceled"]?>',
+                    text: '<?=$lang["finishingCanceled"]?>'
                 });
             }
         });

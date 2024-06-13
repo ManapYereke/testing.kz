@@ -36,6 +36,14 @@ $fields=[
 		,"required"=>true
 	]
 	,[
+		"id"=>"tb0301_timelimit"
+		,"type"=>"number"
+		,"title"=> $lang['timelimit']
+		,"class"=>"form-control"
+		,"desc"=> $lang['timelimit']	
+		,"required"=>true
+	]
+	,[
 		"id"=>"tb0301_desc_ru"
 		,"type"=>"textarea"
 		,"title"=> $lang['desc_ru'] 
