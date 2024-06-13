@@ -13,7 +13,7 @@ $fields=[
 	,[
 		"id"=>"tb0302_tb0301_id"
 		,"type"=>"dropdown"
-		,"title"=>"Тест"
+		,"title"=>"Субест"
 		,"sql"=>"SELECT * FROM tb0301_subtests ORDER BY tb0301_order"
 		,"class"=>"selectpicker w-100"
 		,"fieldId"=>"tb0301_id"

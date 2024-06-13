@@ -17,7 +17,8 @@ class Html {
 		$CI =& get_instance();
 
 		$id=$params["id"];
-		$title=isset($params["title"])&&$params["title"]?$CI->utils->t(@$params["title"]):"";
+		$title = isset($params["title"]) && $params["title"] ? $CI->utils->t(@$params["title"]) : "";
+		$placeholder = isset($params["placeholder"]) && $params["placeholder"] ? $CI->utils->t(@$params["placeholder"]) : $title;
 		$class=isset($params["class"])&&$params["class"]?$CI->utils->t(@$params["class"]):"";
 		$required=(isset($params["required"])&&@$params["required"])?"required":"";
 		$value=(isset($params["value"])&&@$params["value"])?@$params["value"]:@$GLOBALS["CI"]->load->get_var($id);
@@ -28,7 +29,7 @@ class Html {
 	<span class="input-group-addon">
 		<span class="glyphicon glyphicon-calendar"></span>
 	</span>
-	<input type="text" name="$id" id="$id" value="$value" class="$class" placeholder="$title" $required>
+	<input type="text" name="$id" id="$id" value="$value" class="$class" placeholder="$placeholder" $required>
 </div>
 END;
 		return $html;
@@ -40,6 +41,7 @@ END;
 
 		$id=$params["id"];
 		$title=isset($params["title"])&&$params["title"]?$CI->utils->t(@$params["title"]):"";
+		$placeholder = isset($params["placeholder"]) && $params["placeholder"] ? $CI->utils->t(@$params["placeholder"]) : $title;
 		$class=isset($params["class"])&&$params["class"]?@$params["class"]:"";
 		$mask=isset($params["mask"])&&$params["mask"]?"data-mask=\"".@$params["mask"]."\"":"";
 		$type=((isset($params["type"])&&@$params["type"])?@$params["type"]:"text");
@@ -93,7 +95,7 @@ END;
 			$html = <<< END
 <div class="form-group">
 	<label for="$id">$title</label>
-	<select $multiple class="$class" id="$id" name="$id$mul" $required $attr $disab placeholder="$title" data-title="$title" data-none-results-text="...">
+	<select $multiple class="$class" id="$id" name="$id$mul" $required $attr $disab placeholder="$placeholder" data-title="$title" data-none-results-text="...">
 $options
 	</select>
 	<br>
@@ -142,7 +144,7 @@ END;
 					$html .= <<< END
 <div class="input-group">
 	<span class="input-group-addon" id="$id$i">$i.</span>
-	<input type="text" class="$class" name="$id$i" id="$id$i" value="$value" $required $attr $readonly placeholder="$title" aria-describedby="$id$i">
+	<input type="text" class="$class" name="$id$i" id="$id$i" value="$value" $required $attr $readonly placeholder="$placeholder" aria-describedby="$id$i">
 	<span class="input-group-btn">
 		<button class="btn btn-primary" onclick="clientfinder(this)" type="button"><span class="glyphicon glyphicon-search"></span></button>
 	</span>
@@ -160,7 +162,7 @@ END;
 <div class="form-group">
     <label for="$id">$title</label>
 	<div class="input-group">
-		<input type="text" class="$class" name="$id" id="$id" value="$value" $required $attr $readonly placeholder="$title" aria-describedby="$id">
+		<input type="text" class="$class" name="$id" id="$id" value="$value" $required $attr $readonly placeholder="$placeholder" aria-describedby="$id">
 		<span class="input-group-btn">
 			<button class="btn btn-primary" onclick="clientfinder(this)" type="button"><span class="glyphicon glyphicon-search"></span></button>
 		</span>
@@ -187,7 +189,7 @@ END;
 			$html = <<< END
 <div class="form-group">
 	<label for="$id">$title</label>
-	<textarea class="$class" id="$id" name="$id" $required $attr $readonly placeholder="$title">$value</textarea>
+	<textarea class="$class" id="$id" name="$id" $required $attr $readonly placeholder="$placeholder">$value</textarea>
 </div>
 END;
 		}
@@ -216,7 +218,7 @@ END;
 			$html = <<< END
 <div class="form-group">
 	<label for="$id">$title</label>
-	<input type="$type" $multiple class="$class" id="$id" name="$id" $mask $required $attr $readonly placeholder="$title" value="$value">
+	<input type="$type" $multiple class="$class" id="$id" name="$id" $mask $required $attr $readonly placeholder="$placeholder" value="$value">
 END;
 	if($labels){
 		$html .= <<< END
